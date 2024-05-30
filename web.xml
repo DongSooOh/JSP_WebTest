@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.Jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>webtest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <security-role>
+  	<!-- 역할명 -->
+  	<role-name>role1</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection>
+  		<!-- 프로젝트 단위 -->
+  		<web-resource-name>webtest</web-resource-name>
+  		<!-- 페이지 단위 -->
+  		<!-- <url-pattern>/2024-05-30/security01.jsp</url-pattern> -->
+  		<url-pattern>/2024-05-30/security02.jsp</url-pattern>
+  		<http-method>GET</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<description>설명</description>
+  		<!-- 사용자명 -->
+  		<role-name>role1</role-name>
+  	</auth-constraint>
+  </security-constraint>
+   <!--
+   <login-config>
+  		<auth-method>BASIC</auth-method>
+   </login-config>
+   -->
+   <login-config>
+   	<auth-method>FORM</auth-method>
+   	<form-login-config>
+   		<form-login-page>/2024-05-30/login.jsp</form-login-page>
+   		<form-error-page>/2024-05-30/login_failed.jsp</form-error-page> 
+   </form-login-config>
+   </login-config>
+</web-app>
